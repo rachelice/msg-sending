@@ -1,0 +1,4 @@
+{'count':'2','children':[{'id':0,'parentId':-1,'text':'总行','str8':'','str7':'','str6':'','str5':'','str4':'','str3':'总行','str2':'0','str1':'0','int4':0
+,'int3':0,'int2':0,'int1':0,'index':1,
+'children':[
+{'id':1,'parentId':0,'text':'测试','str8':'','str7':'','str6':'哈哈','str5':'dep@qq.com','str4':'说明','str3':'测试','str2':'1','str1':'test','int4':0,'int3':0,'int2':0,'int1':1,'index':1,'children':[]},{'id':4,'parentId':0,'text':'测试4','str8':'','str7':'','str6':'','str5':'','str4':'','str3':'测试4','str2':'1','str1':'test4','int4':0,'int3':0,'int2':0,'int1':1,'index':2,'leaf':true}] }] }

@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Hello SyntaxHighlighter</title>
+<script type="text/javascript" src="scripts/shCore.js"></script>
+<script type="text/javascript" src="scripts/shBrushSql.js"></script>
+<link type="text/css" rel="stylesheet" href="styles/shCoreDefault.css"/>
+<script type="text/javascript">SyntaxHighlighter.all();</script>
+
+<pre class="brush: sql;">
+   SELECT * FROM WHATEVER;
+   select distinct * from 数据表 where字段名=字段值 order by字段名[desc]
+</pre>
+
+</html>
+
+    new Ext.panel.Panel({
+        width: 300,
+        renderTo: 'xtemplate-example',
+        margin: 15,
+        bodyPadding: 5,
+        title: 'XTemplate',
+        tpl: [
+            '<script type="text/javascript" src="scripts/shCore.js"></script>'
+            '<script type="text/javascript" src="scripts/shBrushSql.js"></script>'
+            '<link type="text/css" rel="stylesheet" href="styles/shCoreDefault.css"/>'
+            '<script type="text/javascript">SyntaxHighlighter.all();</script>'
+
+						'<pre class="brush: sql;">'
+						   'SELECT * FROM WHATEVER;'
+						   'select distinct * from 数据表 where字段名=字段值 order by字段名[desc]'
+						'</pre>'
+        ],
+        tbar: [{
+            text: 'Apply Template',
+            handler: function() {
+                this.up('panel').update(data);
+            }
+        }],
+        html: '<p><i>Apply the template to see results here</i></p>'
+    });

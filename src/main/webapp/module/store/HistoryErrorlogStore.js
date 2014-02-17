@@ -1,0 +1,11 @@
+Ext.define('Fes.store.HistoryErrorlogStore', {
+			extend : 'Ext.data.Store',
+			model : 'Fes.model.HistoryErrorlogModel',
+			pageSize : 20,
+			autoLoad: true,
+			remoteSort: true,
+			sorters: [{
+				property: 'occurdate',
+				direction: 'DESC'
+			}]
+		});
