@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="com-sit-framework" default="welcome">
+<project name="msg-sending" default="welcome">
 	<!-- properties from files -->
 	<property file="${user.home}/.sit/build.properties" />
 	<property file="build.properties" />
