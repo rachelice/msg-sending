@@ -40,7 +40,7 @@ import com.sunshineroad.system.role.entity.Role;
  * @Date 2009-12-3 上午12:09:18
  */
 @Entity
-@Table(name = "SYS_USER")
+@Table(name = "MSP_USER")
 public class User extends BaseEntity{
 	
 	private static final long serialVersionUID = 1L;
@@ -122,7 +122,7 @@ public class User extends BaseEntity{
 	}
 
 	@ManyToMany(targetEntity=Role.class,fetch=FetchType.LAZY)
-	@JoinTable(name="SYS_USER_ROLE",joinColumns=@JoinColumn(name = "USER_ID"),inverseJoinColumns = @JoinColumn(name = "ROLE_ID"))
+	@JoinTable(name="MSP_USER_ROLE",joinColumns=@JoinColumn(name = "USER_ID"),inverseJoinColumns = @JoinColumn(name = "ROLE_ID"))
 	@Fetch(FetchMode.SUBSELECT)
 	public List<Role> getRoles() {
 		return roles;

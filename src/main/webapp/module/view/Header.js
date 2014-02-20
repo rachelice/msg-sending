@@ -105,7 +105,7 @@ Ext.define('Fes.view.Header', {
 									bodyStyle : 'padding: 7',
 									modal : true,
 									title : '关于本系统',
-									html : '运维综合管理系统v1.0',
+									html : '驾培短信平台 v1.0',
 									width : 300,
 									height : 200
 								}).show();
