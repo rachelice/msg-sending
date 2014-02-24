@@ -181,18 +181,18 @@ DataSource ds =(DataSource) context.getBean("dataSource5");
 JdbcTemplate jdbcTemplate =(JdbcTemplate) context.getBean("jdbcTemplate1");
      
 //jdbcTemplate.equals("delete sys_resource where component= Fes.view"+entityName+"List"); 
-jdbcTemplate.equals("delete sys_resource where url like '%"+entityName+"%'"); 
+jdbcTemplate.equals("delete MSP_resource where url like '%"+entityName+"%'"); 
 
 String upperEntityName = entityName.substring(0,1).toLowerCase()+entityName.substring(1); //实体名首字母小写
 
-int fatherIDInt = jdbcTemplate.queryForInt("SELECT SYS_RESOURCE_SEQ.NEXTVAL FROM DUAL")-1; //通过序列确定父节点ID
+int fatherIDInt = jdbcTemplate.queryForInt("SELECT MSP_RESOURCE_SEQ.NEXTVAL FROM DUAL")+1; //通过序列确定父节点ID
 String fatherID = String.valueOf(fatherIDInt);
 
-jdbcTemplate.execute("INSERT INTO \"W24SDEV\".\"SYS_RESOURCE\" (component,descripton,text,type,parent_id,URL) VALUES ( 'Fes.view."+entityName+"List','"+ftlDescription+"资源','"+ftlDescription+"资源','COMPONENT',"+2 + ",'" +upperEntityName+"s')");
-jdbcTemplate.execute("INSERT INTO \"W24SDEV\".\"SYS_RESOURCE\" (component,descripton,text,type,parent_id,URL) VALUES ( NULL, '"+ftlDescription+"列表','"+ftlDescription+"资源','COMPONENT',"+fatherID+",'"+upperEntityName+"/list')");
-jdbcTemplate.execute("INSERT INTO \"W24SDEV\".\"SYS_RESOURCE\" (component,descripton,text,type,parent_id,URL) VALUES ( NULL, '"+ftlDescription+"新增','"+ftlDescription+"新增','COMPONENT',"+fatherID+",'"+upperEntityName+"/create')");
-jdbcTemplate.execute("INSERT INTO \"W24SDEV\".\"SYS_RESOURCE\" (component,descripton,text,type,parent_id,URL) VALUES ( NULL, '"+ftlDescription+"修改','"+ftlDescription+"修改','COMPONENT',"+fatherID+",'"+upperEntityName+"/update')");
-jdbcTemplate.execute("INSERT INTO \"W24SDEV\".\"SYS_RESOURCE\" (component,descripton,text,type,parent_id,URL) VALUES ( NULL, '"+ftlDescription+"删除','"+ftlDescription+"删除','COMPONENT',"+fatherID+",'"+upperEntityName+"/delete')");
+jdbcTemplate.execute("INSERT INTO \"MSP\".\"MSP_RESOURCE\" (component,descripton,text,type,parent_id,URL) VALUES ( 'Fes.view."+entityName+"List','"+ftlDescription+"资源','"+ftlDescription+"资源','COMPONENT',"+2 + ",'" +upperEntityName+"s')");
+jdbcTemplate.execute("INSERT INTO \"MSP\".\"MSP_RESOURCE\" (component,descripton,text,type,parent_id,URL) VALUES ( NULL, '"+ftlDescription+"列表','"+ftlDescription+"资源','COMPONENT',"+fatherID+",'"+upperEntityName+"/list')");
+jdbcTemplate.execute("INSERT INTO \"MSP\".\"MSP_RESOURCE\" (component,descripton,text,type,parent_id,URL) VALUES ( NULL, '"+ftlDescription+"新增','"+ftlDescription+"新增','COMPONENT',"+fatherID+",'"+upperEntityName+"/create')");
+jdbcTemplate.execute("INSERT INTO \"MSP\".\"MSP_RESOURCE\" (component,descripton,text,type,parent_id,URL) VALUES ( NULL, '"+ftlDescription+"修改','"+ftlDescription+"修改','COMPONENT',"+fatherID+",'"+upperEntityName+"/update')");
+jdbcTemplate.execute("INSERT INTO \"MSP\".\"MSP_RESOURCE\" (component,descripton,text,type,parent_id,URL) VALUES ( NULL, '"+ftlDescription+"删除','"+ftlDescription+"删除','COMPONENT',"+fatherID+",'"+upperEntityName+"/delete')");
     
 
 ds.getConnection().close();

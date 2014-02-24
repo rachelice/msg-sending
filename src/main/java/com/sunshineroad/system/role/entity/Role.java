@@ -22,7 +22,7 @@ import com.sunshineroad.system.resource.entity.ResourceModel;
 
 
 @Entity
-@Table(name="SYS_ROLE")
+@Table(name="MSP_ROLE")
 public class Role extends BaseEntity{
 
 	private static final long serialVersionUID = 1L;
@@ -97,7 +97,7 @@ public class Role extends BaseEntity{
 	}
 
 	@ManyToMany(targetEntity=ResourceModel.class,fetch=FetchType.LAZY)
-	@JoinTable(name="SYS_ROLE_RESOURCE",joinColumns=@JoinColumn(name = "ROLE_ID"),inverseJoinColumns = @JoinColumn(name = "RESOURCE_ID"))
+	@JoinTable(name="MSP_ROLE_RESOURCE",joinColumns=@JoinColumn(name = "ROLE_ID"),inverseJoinColumns = @JoinColumn(name = "RESOURCE_ID"))
 	@Fetch(FetchMode.SUBSELECT)
 	@OrderBy("index asc")
 	public List<ResourceModel> getResources() {

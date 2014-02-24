@@ -46,10 +46,10 @@
 	
 	
 	<http pattern="/freeTableController/**" security="none" />
-	<http pattern="/sysCustomSql/**" security="none" />
+	<!-- <http pattern="/sysCustomSql/**" security="none" /> -->
 	<http pattern="/absolute/simple-reports/**" security="none" />
 	<http pattern="/toExcel/**" security="none" />
-	<http pattern="/sysParameter/**" security="none" />
+	<!-- <http pattern="/sysParameter/**" security="none" /> -->
 	<http pattern="/resources/TreeJson" security="none" />
 	<http pattern="/resource/child" security="none" />
 	<http pattern="/StationGe/getstationgelist" security="none" />

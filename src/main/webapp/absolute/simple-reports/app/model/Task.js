@@ -26,24 +26,24 @@ Ext.define('SimpleReports.model.Task', {
         { name: 'done', type: 'boolean', defaultValue: false },
         { name: 'note' }*/
     ],
-    proxy:{
-   	 
-        type : 'rest',
-        url:'sysCustomSql/list',
-        actionMethods:{
-        	  create : 'POST',
-              read   : 'GET',
-              update : 'PUT',
-              destroy: 'DELETE' 
-        	
-        },
-        api:{
-        	create:'sysCustomSql/create',
-        	read:'sysCustomSql/list',
-        	update:'sysCustomSql/update',
-        	destroy:'sysCustomSql/delete' 
-        	 
-        },
+//    proxy:{
+//   	 
+//        type : 'rest',
+//        url:'sysCustomSql/list',
+//        actionMethods:{
+//        	  create : 'POST',
+//              read   : 'GET',
+//              update : 'PUT',
+//              destroy: 'DELETE' 
+//        	
+//        },
+//        api:{
+//        	create:'sysCustomSql/create',
+//        	read:'sysCustomSql/list',
+//        	update:'sysCustomSql/update',
+//        	destroy:'sysCustomSql/delete' 
+//        	 
+//        },
         reader:{
             type : 'json',
             root : 'root',

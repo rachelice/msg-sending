@@ -16,8 +16,8 @@
 		<property name="driver" value="oracle.jdbc.driver.OracleDriver" /><!-- 
 			oracle.jdbc.driver.OracleDriver -->
 		<property name="driverUrl" value="jdbc:oracle:thin:@192.168.40.147:1521/kdp" />
-		<property name="user" value="w24sDev" />
-		<property name="password" value="w24sDev" />
+		<property name="user" value="MSP" />
+		<property name="password" value="MSP" />
 		<property name="maximumConnectionCount" value="50" />
 		<property name="minimumConnectionCount" value="2" />
 		<property name="statistics" value="1m,15m,1h,1d" />

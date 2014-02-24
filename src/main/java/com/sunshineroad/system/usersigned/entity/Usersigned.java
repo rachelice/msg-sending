@@ -14,7 +14,7 @@ import javax.persistence.Table;
 import com.sunshineroad.framework.support.entity.BaseEntity;
 
 @Entity
-@Table(name="SYS_USERSIGNED")
+@Table(name="MSP_USERSIGNED")
 public class Usersigned extends BaseEntity{
 
 	private static final long serialVersionUID = 1L;

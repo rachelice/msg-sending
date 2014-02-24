@@ -18,7 +18,7 @@ import javax.persistence.Transient;
 import com.sunshineroad.framework.support.entity.BaseEntity;
 
 @Entity
-@Table(name="SYS_RESOURCE")
+@Table(name="MSP_RESOURCE")
 public class ResourceModel extends BaseEntity{
 
 	private static final long serialVersionUID = 1L;

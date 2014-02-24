@@ -14,7 +14,7 @@ import javax.persistence.Table;
 import com.sunshineroad.framework.support.entity.BaseEntity;
 
 @Entity
-@Table(name="SYS_ACTIONLOG")
+@Table(name="MSP_ACTIONLOG")
 public class Actionlog extends BaseEntity{
 
 	private static final long serialVersionUID = 1L;

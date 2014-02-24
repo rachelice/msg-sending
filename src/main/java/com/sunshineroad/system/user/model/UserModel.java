@@ -30,12 +30,12 @@ import com.sunshineroad.system.role.entity.Role;
  */
 
 @Entity 
-@Table(name = "SYS_USER")
+@Table(name = "MSP_USER")
 public class UserModel extends BaseEntity {
 	
 	private static final long serialVersionUID = 1L;
 	@ManyToMany(targetEntity=Role.class,fetch=FetchType.LAZY)
-	@JoinTable(name="SYS_USER_ROLE",joinColumns=@JoinColumn(name = "USER_ID"),inverseJoinColumns = @JoinColumn(name = "ROLE_ID"))
+	@JoinTable(name="MSP_USER_ROLE",joinColumns=@JoinColumn(name = "USER_ID"),inverseJoinColumns = @JoinColumn(name = "ROLE_ID"))
 	@Fetch(FetchMode.SUBSELECT)
 	private List<Role> roles;
 

@@ -57,7 +57,7 @@ Ext.define('Fes.controller.DesktopController', {
 						xtype : 'portalcolumn',
 						 region: 'west',
 						items : [{
-									title : '新闻动态1',
+									title : '新闻动态',
 									height : 168,
 									width:_maxwidth,
 									iconCls : 'icon-news'
@@ -138,33 +138,33 @@ Ext.define('Fes.controller.DesktopController', {
 						};
 			//tab.add(taskPanel);
 			*/
-			 var taskPanel={
-						iconCls : 'icon-activity',
-						title : '报表',
-						xtype : 'panel',
-						closable : true,
-					    layout: 'border',
-			             
-		
-					    items: [
-					        {
-					            xtype: 'tasksToolbar',
-					            region: 'north'
-					        },
-					        {
-					            xtype: 'listTree',
-					            region: 'west',
-					            width: 300,
-					            collapsible: true,
-					            split: true
-					        },
-					        {
-					            region: 'center',
-					            xtype: 'taskGrid',
-					            title: '全部任务清单'  
-					        }
-					    ]
-					};
+//			 var taskPanel={
+//						iconCls : 'icon-activity',
+//						title : '报表',
+//						xtype : 'panel',
+//						closable : true,
+//					    layout: 'border',
+//			             
+//		
+//					    items: [
+//					        {
+//					            xtype: 'tasksToolbar',
+//					            region: 'north'
+//					        },
+//					        {
+//					            xtype: 'listTree',
+//					            region: 'west',
+//					            width: 300,
+//					            collapsible: true,
+//					            split: true
+//					        },
+//					        {
+//					            region: 'center',
+//					            xtype: 'taskGrid',
+//					            title: '全部任务清单'  
+//					        }
+//					    ]
+//					};
 		 tab.add(taskPanel);
 		 });
 		 });
