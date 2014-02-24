@@ -2,7 +2,7 @@
 if [[ "$1" == "" ]] ; then
     echo "please input version of demo, correct usage: <merge-to-no-maven.sh version>"
 else
-    NO_MAVEN_DIR="../com-sit-framework-no-maven"
+    NO_MAVEN_DIR="../msg-sending-no-maven"
     echo "delete all files of branch no-maven"
 
     #echo "delete libs"
@@ -28,7 +28,7 @@ else
 
     echo "copying libs to no-maven"
     mvn package -Dmaven.test.skip=true
-    cp ./target/com-sit-framework-$1/WEB-INF/lib/* $NO_MAVEN_DIR/WebContent/WEB-INF/lib/
+    cp ./target/msg-sending-$1/WEB-INF/lib/* $NO_MAVEN_DIR/WebContent/WEB-INF/lib/
     cd $NO_MAVEN_DIR
     git checkout -- WebContent/WEB-INF/lib/junit-4.10.jar
     git checkout -- WebContent/WEB-INF/lib/servlet-api-2.5.jar

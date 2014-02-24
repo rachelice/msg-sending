@@ -877,7 +877,7 @@
 	<profiles>
 		<!-- 开发环境 -->
 		<profile>
-			<id>com-sit-framework</id>
+			<id>msg-sending</id>
 			<activation>
 				<activeByDefault>true</activeByDefault>
 			</activation>

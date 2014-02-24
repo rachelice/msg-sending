@@ -86,10 +86,10 @@
 		</table>
 		<hr />
 		<p>
-			<b>Wiki：</b><a target="_blank" href="https://github.com/henryyan/com-sit-framework/wiki">https://github.com/henryyan/com-sit-framework/wiki</a>
+			<b>Wiki：</b><a target="_blank" href="https://github.com/rachelice/msg-sending/wiki">https://github.com/rachelice/msg-sending/wiki</a>
 		</p>
 		<p>
-			<b>Demo源码：</b><a target="_blank" href="https://github.com/henryyan/com-sit-framework">https://github.com/henryyan/com-sit-framework</a>
+			<b>Demo源码：</b><a target="_blank" href="https://github.com/rachelice/msg-sending">https://github.com/rachelice/msg-sending</a>
 		</p>
 		<p>
 			<b>Activiti资料：</b><a target="_blank" href="http://www.sit.me/categories.html#activiti-ref">http://www.sit.me/categories.html#activiti-ref</a>

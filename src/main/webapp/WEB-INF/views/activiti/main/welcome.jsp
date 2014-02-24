@@ -49,8 +49,8 @@
 	</div>
 	<div class="project-info template">
 		<ul>
-			<li><a target="_blank" href='https://github.com/henryyan/com-sit-framework'>com-sit-framework</a>为Activiti初学者快速入门所设计。</li>
-			<li>源代码托管Github：<a target="_blank" href='https://github.com/henryyan/com-sit-framework'>https://github.com/henryyan/com-sit-framework</a></li>
+			<li><a target="_blank" href='https://github.com/henryyan/msg-sending'>msg-sending</a>为Activiti初学者快速入门所设计。</li>
+			<li>源代码托管Github：<a target="_blank" href='https://github.com/henryyan/msg-sending'>https://github.com/henryyan/msg-sending</a></li>
 		</ul>
 	</div>
 
@@ -84,10 +84,10 @@
 
 	<div class="links template">
 		<p>
-			<b>Wiki：</b><a target="_blank" href="https://github.com/henryyan/com-sit-framework/wiki">https://github.com/henryyan/com-sit-framework/wiki</a>
+			<b>Wiki：</b><a target="_blank" href="https://github.com/henryyan/msg-sending/wiki">https://github.com/henryyan/msg-sending/wiki</a>
 		</p>
 		<p>
-			<b>Demo源码：</b><a target="_blank" href="https://github.com/henryyan/com-sit-framework">https://github.com/henryyan/com-sit-framework</a>
+			<b>Demo源码：</b><a target="_blank" href="https://github.com/henryyan/msg-sending">https://github.com/henryyan/msg-sending</a>
 		</p>
 		<p>
 			<b>Activiti资料：</b><a target="_blank" href="http://www.sit.me/categories.html#activiti-ref">http://www.sit.me/categories.html#activiti-ref</a>
