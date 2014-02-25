@@ -58,7 +58,7 @@ public class MspMsgListController extends BaseControllerImpl {
 		return ResponseUtils.sendPagination(mspMsgListService.list(mspMsgList)) ;
 	}
  
-	@RequestMapping(value="update/{id}",  method=RequestMethod.PUT)
+	@RequestMapping(value="update",  method=RequestMethod.PUT)
 	public @ResponseBody Object update(@RequestBody MspMsgListVo mspMsgListVo) throws Exception{
 		MspMsgList mspMsgList =new MspMsgList();
 		PropertyUtils.copyProperties(mspMsgList, mspMsgListVo);
@@ -73,7 +73,7 @@ public class MspMsgListController extends BaseControllerImpl {
 		return ResponseUtils.sendSuccess("保存成功",this.mspMsgListService.save(mspMsgList).getId());
 	}
 	
-	@RequestMapping(value="delete/{id}",method=RequestMethod.DELETE)
+	@RequestMapping(value="delete",method=RequestMethod.DELETE)
 	public @ResponseBody Object delete(@RequestBody MspMsgList mspMsgList) throws Exception{
 		this.mspMsgListService.delete(mspMsgList);
 		return ResponseUtils.sendSuccess("删除成功");

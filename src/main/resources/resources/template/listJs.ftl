@@ -20,15 +20,11 @@ createRoleCombox:function(){
 				<#list columns as po>
 				 	<#if po.fieldType =="date" >	
 					{text : '${po.filedComment}',width : 120,sortable : true,renderer:function(v){if(!v||v==''){return;}var d= new Date();d.setTime(v); return Ext.util.Format.date(d,'Y-m-d');},dataIndex : '${po.fieldName}',field : {xtype : 'datefield', format:'Y-m-d'}},
-		 	 		
-						<#else>
-						{text : '${po.filedComment}',width : 120,sortable : true,dataIndex : '${po.fieldName}',field : {xtype : 'textfield',required : true}},
-		 	 		</#if>
-		 	 		
+				<#else>
+					{text : '${po.filedComment}',width : 120,sortable : true,dataIndex : '${po.fieldName}',field : {xtype : 'textfield',required : true}},
+		 	 	</#if>
 	 	 		</#list>
-	 	 		
 	 	 		{text : 'id',width : 120,sortable : true,dataIndex : 'id',hidden:true}
-	 	 		
 	],
 	initComponent : function() {
 	 

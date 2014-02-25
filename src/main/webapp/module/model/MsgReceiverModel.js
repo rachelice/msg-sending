@@ -7,6 +7,7 @@ Ext.define('Fes.model.MsgReceiverModel', {
         {name : 'semester',type:'string'}
     ],
 	proxy : {
+        appendId:false,
 		type : 'rest',
 		url : 'msgreceiver',
 		reader : {

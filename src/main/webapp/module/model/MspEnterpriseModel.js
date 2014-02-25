@@ -153,7 +153,7 @@ Ext.define("Fes.model.MspEnterpriseModel",{
 	],
 	
 	   proxy:{
-    	 
+	    appendId:false,
         type : 'rest',
         url:'mspEnterprise',
         actionMethods:{

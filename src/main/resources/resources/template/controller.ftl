@@ -58,7 +58,7 @@ public class ${entityName}Controller extends BaseControllerImpl {
 		return ResponseUtils.sendPagination(${entityName?uncap_first}Service.list(${entityName?uncap_first})) ;
 	}
  
-	@RequestMapping(value="update/{id}",  method=RequestMethod.PUT)
+	@RequestMapping(value="update",  method=RequestMethod.PUT)
 	public @ResponseBody Object update(@RequestBody ${entityName}Vo ${entityName?uncap_first}Vo) throws Exception{
 		${entityName} ${entityName?uncap_first} =new ${entityName}();
 		PropertyUtils.copyProperties(${entityName?uncap_first}, ${entityName?uncap_first}Vo);
@@ -73,7 +73,7 @@ public class ${entityName}Controller extends BaseControllerImpl {
 		return ResponseUtils.sendSuccess("保存成功",this.${entityName?uncap_first}Service.save(${entityName?uncap_first}).getId());
 	}
 	
-	@RequestMapping(value="delete/{id}",method=RequestMethod.DELETE)
+	@RequestMapping(value="delete",method=RequestMethod.DELETE)
 	public @ResponseBody Object delete(@RequestBody ${entityName} ${entityName?uncap_first}) throws Exception{
 		this.${entityName?uncap_first}Service.delete(${entityName?uncap_first});
 		return ResponseUtils.sendSuccess("删除成功");

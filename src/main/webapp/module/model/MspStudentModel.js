@@ -58,7 +58,7 @@ Ext.define("Fes.model.MspStudentModel",{
 	],
 	
 	   proxy:{
-    	 
+		appendId:false,
         type : 'rest',
         url:'mspStudent',
         actionMethods:{

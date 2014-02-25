@@ -36,7 +36,7 @@ Ext.define("Fes.model.MspMsgTaskHistoryModel",{
 	],
 	
 	   proxy:{
-    	 
+	    appendId:false,
         type : 'rest',
         url:'mspMsgTaskHistory',
         actionMethods:{

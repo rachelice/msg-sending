@@ -58,7 +58,7 @@ public class MspEnterpriseController extends BaseControllerImpl {
 		return ResponseUtils.sendPagination(mspEnterpriseService.list(mspEnterprise)) ;
 	}
  
-	@RequestMapping(value="update/{id}",  method=RequestMethod.PUT)
+	@RequestMapping(value="update",  method=RequestMethod.PUT)
 	public @ResponseBody Object update(@RequestBody MspEnterpriseVo mspEnterpriseVo) throws Exception{
 		MspEnterprise mspEnterprise =new MspEnterprise();
 		PropertyUtils.copyProperties(mspEnterprise, mspEnterpriseVo);
@@ -73,7 +73,7 @@ public class MspEnterpriseController extends BaseControllerImpl {
 		return ResponseUtils.sendSuccess("保存成功",this.mspEnterpriseService.save(mspEnterprise).getId());
 	}
 	
-	@RequestMapping(value="delete/{id}",method=RequestMethod.DELETE)
+	@RequestMapping(value="delete}",method=RequestMethod.DELETE)
 	public @ResponseBody Object delete(@RequestBody MspEnterprise mspEnterprise) throws Exception{
 		this.mspEnterpriseService.delete(mspEnterprise);
 		return ResponseUtils.sendSuccess("删除成功");

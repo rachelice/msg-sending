@@ -6,31 +6,26 @@ Ext.define("Fes.model.${entityName}Model",{
 				{name:'${po.fieldName}',type:'auto'}	,	//${po.filedComment}
 			 <#else>
 				{name:'${po.fieldName}',type:'string'}	,	//${po.filedComment}
-			
 			</#if>
-			
 		</#list>
 		{name:'id',type:'int'}
-		 
 	],
 	
 	   proxy:{
-    	 
         type : 'rest',
+        appendId:false,
         url:'${entityName?uncap_first}',
         actionMethods:{
-        	  create : 'POST',
-              read   : 'GET',
-              update : 'PUT',
-              destroy: 'DELETE' 
-        	
+        	create : 'POST',
+            read   : 'GET',
+            update : 'PUT',
+            destroy: 'DELETE' 
         },
         api:{
         	create:'${entityName?uncap_first}/create',
         	read:'${entityName?uncap_first}/list',
         	update:'${entityName?uncap_first}/update',
-        	destroy:'${entityName?uncap_first}/delete' 
-        	 
+        	destroy:'${entityName?uncap_first}/delete'  
         },
         reader:{
             type : 'json',
@@ -39,8 +34,6 @@ Ext.define("Fes.model.${entityName}Model",{
         },
         writer:{
             type:'json'
-            
         }
     }
- 
 });

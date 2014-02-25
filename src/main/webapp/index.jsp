@@ -98,6 +98,8 @@
 		 <script type="text/javascript" src="${extLibPath}/examples/simple-tasks/SimpleTaskSettings.js"></script>
 		<script type="text/javascript" src="js/app.js"></script>
 		<script type="text/javascript" src="js/cryptojs.js"></script>
+		<script src="module/util/GridComboBox.js"></script>
+		<script src="module/util/GridComboBoxList.js"></script>
 <!-- 		<script type="text/javascript" src="js/extexcel/export-all.js"></script>
 		<script type="text/javascript" src="js/firebugx.js"></script> -->
 		<script type="text/javascript" src="js/ExporterExcel-all.js"></script> 

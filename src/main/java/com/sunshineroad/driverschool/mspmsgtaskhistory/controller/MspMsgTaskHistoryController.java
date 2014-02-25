@@ -58,7 +58,7 @@ public class MspMsgTaskHistoryController extends BaseControllerImpl {
 		return ResponseUtils.sendPagination(mspMsgTaskHistoryService.list(mspMsgTaskHistory)) ;
 	}
  
-	@RequestMapping(value="update/{id}",  method=RequestMethod.PUT)
+	@RequestMapping(value="update",  method=RequestMethod.PUT)
 	public @ResponseBody Object update(@RequestBody MspMsgTaskHistoryVo mspMsgTaskHistoryVo) throws Exception{
 		MspMsgTaskHistory mspMsgTaskHistory =new MspMsgTaskHistory();
 		PropertyUtils.copyProperties(mspMsgTaskHistory, mspMsgTaskHistoryVo);
@@ -73,7 +73,7 @@ public class MspMsgTaskHistoryController extends BaseControllerImpl {
 		return ResponseUtils.sendSuccess("保存成功",this.mspMsgTaskHistoryService.save(mspMsgTaskHistory).getId());
 	}
 	
-	@RequestMapping(value="delete/{id}",method=RequestMethod.DELETE)
+	@RequestMapping(value="delete",method=RequestMethod.DELETE)
 	public @ResponseBody Object delete(@RequestBody MspMsgTaskHistory mspMsgTaskHistory) throws Exception{
 		this.mspMsgTaskHistoryService.delete(mspMsgTaskHistory);
 		return ResponseUtils.sendSuccess("删除成功");

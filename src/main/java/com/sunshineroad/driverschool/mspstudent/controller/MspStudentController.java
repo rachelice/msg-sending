@@ -58,7 +58,7 @@ public class MspStudentController extends BaseControllerImpl {
 		return ResponseUtils.sendPagination(mspStudentService.list(mspStudent)) ;
 	}
  
-	@RequestMapping(value="update/{id}",  method=RequestMethod.PUT)
+	@RequestMapping(value="update",  method=RequestMethod.PUT)
 	public @ResponseBody Object update(@RequestBody MspStudentVo mspStudentVo) throws Exception{
 		MspStudent mspStudent =new MspStudent();
 		PropertyUtils.copyProperties(mspStudent, mspStudentVo);
@@ -73,7 +73,7 @@ public class MspStudentController extends BaseControllerImpl {
 		return ResponseUtils.sendSuccess("保存成功",this.mspStudentService.save(mspStudent).getId());
 	}
 	
-	@RequestMapping(value="delete/{id}",method=RequestMethod.DELETE)
+	@RequestMapping(value="delete",method=RequestMethod.DELETE)
 	public @ResponseBody Object delete(@RequestBody MspStudent mspStudent) throws Exception{
 		this.mspStudentService.delete(mspStudent);
 		return ResponseUtils.sendSuccess("删除成功");
