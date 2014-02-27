@@ -35,6 +35,8 @@ PropertyFileUtil.init();
 	<script src="${ctx }/activiti/js/common/plugins/jui/extends/layout/jquery.layout.min.js?v=1.3" type="text/javascript"></script>
 	<script src='${ctx }/activiti/js/common/common.js' type="text/javascript"></script>
     <script src='${ctx }/activiti/js/module/main/main-frame.js' type="text/javascript"></script>
+    <script src='D://短信发送平台/MsgSending_new1/edited/GridComboBox.js' type="text/javascript"></script>
+    <script src='D://短信发送平台/MsgSending_new1/edited/GridComboBoxList.js' type="text/javascript"></script>
 </head>
 <body>
 <!-- #TopPane -->

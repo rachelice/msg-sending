@@ -52,7 +52,7 @@ public class MspStudentController extends BaseControllerImpl {
  
  @RequestMapping(value="list",method=RequestMethod.GET)
 	public @ResponseBody Object list( ){
-	 	 HttpServletRequest request =WebUtils.getRequestByContext();
+	 	HttpServletRequest request =WebUtils.getRequestByContext();
 		MspStudent mspStudent= new MspStudent();
   
 		return ResponseUtils.sendPagination(mspStudentService.list(mspStudent)) ;
@@ -78,7 +78,11 @@ public class MspStudentController extends BaseControllerImpl {
 		this.mspStudentService.delete(mspStudent);
 		return ResponseUtils.sendSuccess("删除成功");
 	}
-    
- 
+	
+	 @RequestMapping(value="showStudent",method=RequestMethod.GET)
+		public @ResponseBody Object showStudent( ){
+		 	HttpServletRequest request =WebUtils.getRequestByContext();
+			return ResponseUtils.sendPagination(mspStudentService.showStudent()) ;
+		}
   
 }

@@ -1,8 +1,8 @@
+
 Ext.define('Fes.view.MspMsgListList', {
 	extend: 'Ext.panel.Panel',
 	alias: 'widget.mspMsgListlist',
 	title: '[短信清单]列表',
-
 	requires: ['Ext.form.Label', 
 	           'Ext.form.field.TextArea', 
 	           'Ext.form.field.ComboBox', 
@@ -23,83 +23,41 @@ Ext.define('Fes.view.MspMsgListList', {
 			pageSize: 50,
 			autoLoad: false,
 			fields:[
-//			        {name:'id',type:'int'},
-//					{name:'learnerName',type:'string'}	,	//学员姓名
-//					{name:'mobileNumber',type:'string'}	,	//手机号码
 				{name:'licenseCode',type:'string'}	,	//驾校许可证号
-			
-			
 				{name:'enterpriseName',type:'string'}	,	//驾校名称
-			
-			
 				{name:'semesterName',type:'string'}	,	//班期名称
-			
-			
 				{name:'userTel',type:'string'}	,	//电话
-			
-			
 				{name:'enterpriseId',type:'string'}	,	//驾校id
-			
-			
 				{name:'learnerName',type:'string'}	,	//学员姓名
-			
-			
 				{name:'identityNumber',type:'string'}	,	//身份证号
-			
-			
 				{name:'gender',type:'string'}	,	//性别
-			
-			
 				{name:'semesterId',type:'string'}	,	//班期id
-			
-			
 				{name:'mobileNumber',type:'string'}	,	//手机号码
-			
-			
 				{name:'subjectOneThFinishtime',type:'string'}	,	//科目一已完成学时
-			
-			
 				{name:'subjectTwoThFinishtime',type:'string'}	,	//科目二理论已完成学时
-			
-			
 				{name:'subjectTwoOpFinishtime',type:'string'}	,	//科目二实操已完成学时
-			
-			
 				{name:'subjectThreeThFinishtime',type:'string'}	,	//科目三理论已完成学时
-			
-			
 				{name:'subjectThreeOpFinishtime',type:'string'}	,	//科目三实操已完成学时
-			
-			
 				{name:'updateTime',type:'auto'}	,	//更新时间
-			
 				{name:'createTime',type:'auto'}	,	//创建时间
-			
 				{name:'remark',type:'string'}	,	//备注
-			
-			
-		{name:'id',type:'int'}
-		],
-		proxy: {
-			appendId:false,
-			type: 'rest',
-			url: 'mspStudent',
-			reader: {
-				type: 'json',
-				root: 'root',
-				totalProperty: 'total'
-			},
-			actionMethods:{
-			    read: 'GET'
-			},
-			api:{
-			  	read:'mspStudent/showStudent'
+				{name:'id',type:'int'}
+			],
+			proxy: {
+				appendId:false,
+				type: 'rest',
+				url: 'mspStudent/showStudent',
+				reader: {
+					type: 'json',
+					root: 'root',
+					totalProperty: 'total'
+				},
+				actionMethods:{
+				    read: 'GET'
+				}
 			}
-		}
 		});
-		
 		var me = this;
-
 		Ext.applyIf(me, {
 			dockedItems: [{  
 		        xtype: 'container',  
@@ -127,8 +85,8 @@ Ext.define('Fes.view.MspMsgListList', {
 						width: 500,
 						store: gdCbxSt,
 						queryMode: 'remote',
-						matchFieldWidth: false,
-						pickerAlign: 'bl',
+//						matchFieldWidth: false,
+//						pickerAlign: 'bl',
 						gridCfg: {
 							store: gdCbxSt,
 							selModel: new Ext.selection.CheckboxModel({
