@@ -15,144 +15,175 @@ Ext.define('Fes.view.MspMsgListList', {
 //	height: 576,
 //	width: 785,
 	layout: 'absolute',
-	title: '短信发送 :-)',
+	title: '短信发送',
 	
 	initComponent: function() {
 		
-		var gdCbxSt = new Ext.data.ArrayStore({
+		var gdCbxSt = new Ext.data.Store({
 			pageSize: 50,
 			autoLoad: false,
-			fields: [{
-				name: 'no'
+			fields:[
+//			        {name:'id',type:'int'},
+//					{name:'learnerName',type:'string'}	,	//学员姓名
+//					{name:'mobileNumber',type:'string'}	,	//手机号码
+				{name:'licenseCode',type:'string'}	,	//驾校许可证号
+			
+			
+				{name:'enterpriseName',type:'string'}	,	//驾校名称
+			
+			
+				{name:'semesterName',type:'string'}	,	//班期名称
+			
+			
+				{name:'userTel',type:'string'}	,	//电话
+			
+			
+				{name:'enterpriseId',type:'string'}	,	//驾校id
+			
+			
+				{name:'learnerName',type:'string'}	,	//学员姓名
+			
+			
+				{name:'identityNumber',type:'string'}	,	//身份证号
+			
+			
+				{name:'gender',type:'string'}	,	//性别
+			
+			
+				{name:'semesterId',type:'string'}	,	//班期id
+			
+			
+				{name:'mobileNumber',type:'string'}	,	//手机号码
+			
+			
+				{name:'subjectOneThFinishtime',type:'string'}	,	//科目一已完成学时
+			
+			
+				{name:'subjectTwoThFinishtime',type:'string'}	,	//科目二理论已完成学时
+			
+			
+				{name:'subjectTwoOpFinishtime',type:'string'}	,	//科目二实操已完成学时
+			
+			
+				{name:'subjectThreeThFinishtime',type:'string'}	,	//科目三理论已完成学时
+			
+			
+				{name:'subjectThreeOpFinishtime',type:'string'}	,	//科目三实操已完成学时
+			
+			
+				{name:'updateTime',type:'auto'}	,	//更新时间
+			
+				{name:'createTime',type:'auto'}	,	//创建时间
+			
+				{name:'remark',type:'string'}	,	//备注
+			
+			
+		{name:'id',type:'int'}
+		],
+		proxy: {
+			appendId:false,
+			type: 'rest',
+			url: 'mspStudent',
+			reader: {
+				type: 'json',
+				root: 'root',
+				totalProperty: 'total'
 			},
-			{
-				name: 'subject'
+			actionMethods:{
+			    read: 'GET'
 			},
-			{
-				name: 'credit'
-			},
-			{
-				name: 'debit'
-			},
-			{
-				name: 'summary'
-			}],
-			proxy: {
-				type: 'ajax',
-				url: 'edited/data.json',
-				reader: {
-					type: 'json',
-					root: 'data.list',
-					totalProperty: 'data.total'
-				}
+			api:{
+			  	read:'mspStudent/showStudent'
 			}
+		}
 		});
 		
 		var me = this;
 
 		Ext.applyIf(me, {
-			dockedItems: [{
-				xtype: 'label',
-				dock: 'top',
-				text: '短信正文：'
-			},
-			{
-				xtype: 'textareafield',
-				dock: 'top',
-			}],
-			items: [{
-				xtype: 'container',
-				x: 0,
-				y: 40,
-				height: 25,
-				layout: {
-					type: 'hbox',
-					align: 'stretch'
-				},
-				items: [
-				    new Ext.form.field.GridComboBox({
-					fieldLabel: '选择收信人',
-					multiSelect: true,
-					displayField: 'subject',
-					valueField: 'no',
-					width: 300,
-					labelWidth: 100,
-					labelAlign: 'right',
-					store: gdCbxSt,
-					queryMode: 'remote',
-					matchFieldWidth: false,
-					pickerAlign: 'bl',
-					gridCfg: {
+			dockedItems: [{  
+		        xtype: 'container',  
+		        layout: 'column',
+		        items: [{  
+		            columnWidth:.5,  
+		            xtype:'fieldset',  
+		            collapsible: true, //是否为可折叠  
+		            collapsed: false, //默认是否折叠  
+		            title: '编辑短信',  
+		            autoHeight:true,  
+		            defaults: {},  
+		            defaultType: 'textfield',  
+		            items: [
+	                    {xtype: 'textarea',
+		                width : 500,
+		                height : 200,
+		                fieldLabel: '短信内容',  
+		                name: 'textarea'
+					},new Ext.form.field.GridComboBox({
+						fieldLabel: '添加收信人',
+						multiSelect: true,
+						displayField: 'mobileNumber',
+						valueField: 'id',
+						width: 500,
 						store: gdCbxSt,
-						selModel: new Ext.selection.CheckboxModel({
-							checkOnly: true
-						}),
-						height: 200,
-						width: 400,
-						columns: [{
-							text: 'No',
-							width: 40,
-							dataIndex: 'no'
-						},
-						{
-							text: 'Subject',
-							width: 120,
-							dataIndex: 'subject'
-						},
-						{
-							text: 'Credit',
-							width: 60,
-							dataIndex: 'credit'
-						},
-						{
-							text: 'Debit',
-							width: 60,
-							dataIndex: 'debit'
-						},
-						{
-							text: 'Summary',
-							width: 200,
-							dataIndex: 'summary'
-						}],
-						bbar: Ext.create('Ext.PagingToolbar', {
+						queryMode: 'remote',
+						matchFieldWidth: false,
+						pickerAlign: 'bl',
+						gridCfg: {
 							store: gdCbxSt,
-							displayInfo: true,
-							displayMsg: 'Displaying {0} - {1} of {2}',
-							emptyMsg: "No data to display"
-						})
-					}
-				}), {
-					xtype: 'button',
-					text: '删除已选收信人'
-				}]
-			},
-			{
-				xtype: 'gridpanel',
-				x: -2,
-				y: 70,
-				height: 304,
-				autoScroll: true,
-				title: '选定收信人',
-				selModel: new Ext.selection.CheckboxModel({
-					checkOnly: true
-				}),
-				columns: [{
-					xtype: 'gridcolumn',
-					dataIndex: 'string',
-					text: 'String'
-				},
-				{
-					xtype: 'numbercolumn',
-					dataIndex: 'number',
-					text: '姓名'
-				},
-				{
-					xtype: 'datecolumn',
-					dataIndex: 'date',
-					text: '电话号码'
-				}]
-			},
-			{
+							selModel: new Ext.selection.CheckboxModel({
+								checkOnly: true
+							}),
+							height: 200,
+							width: 400,
+							columns: [{
+								text: '姓名',
+								width: 100,
+								dataIndex: 'learnerName'
+							},
+							{
+								text: '手机号码',
+								width: 100,
+								dataIndex: 'mobileNumber'
+							},{
+								text: 'id',
+								width: 100,
+								dataIndex: 'id'
+							}],
+							bbar: Ext.create('Ext.PagingToolbar', {
+								store: gdCbxSt,
+								displayInfo: true,
+								displayMsg: 'Displaying {0} - {1} of {2}',
+								emptyMsg: "无数据"
+							})
+						}
+					}), {
+						xtype: 'button',
+						text: '删除收信人'
+					},{
+	    				xtype: 'gridpanel',
+	    				loadMask:true,
+	    				autoScroll: true,
+	    				selModel: new Ext.selection.CheckboxModel({
+	    					checkOnly: true
+	    				}),
+	    				columns: [ Ext.grid.RowNumberer(),
+	    				{
+	    					xtype: 'numbercolumn',
+	    					dataIndex: 'number',
+	    					text: '姓名'
+	    				},
+	    				{
+	    					xtype: 'datecolumn',
+	    					dataIndex: 'date',
+	    					text: '电话号码'
+	    				}] 
+	    			},{  
+		                xtype: 'hidden',  
+		                name: 'hidden'  
+		            }]  
+		        }]  
+		    },{
 				xtype: 'container',
 				x: 320,
 				y: 390,
@@ -161,18 +192,34 @@ Ext.define('Fes.view.MspMsgListList', {
 				layout: 'table',
 				items: [{
 					xtype: 'button',
-					text: '发  送'
-				},
-				{
+					text: '发  送',
+					handler : me.send
+				},{
 					xtype: 'button',
-					text: '保  存'
-				},
-				{
+					text: '保  存',
+					handler : me.save
+					
+					
+				},{
 					xtype: 'button',
-					text: '清  空'
+					text: '清  空',
+					handler : me.clear
 				}]
 			}]
 		});
 		me.callParent(arguments);
+	},
+	save : function (){
+		alert('保存');
+//		me.saveRecode(_mspMsgTaskWindow.down('form').getValues());
+	},
+	send : function (){
+		alert('发送');
+//		me.saveRecode(_mspMsgTaskWindow.down('form').getValues());
+	},
+	clear : function (){
+		alert('清空');
+//		me.saveRecode(_mspMsgTaskWindow.down('form'));
 	}
+
 });
