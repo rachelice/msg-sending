@@ -109,7 +109,7 @@ Ext.define('Fes.view.MspMsgListList', {
 		            xtype:'fieldset',  
 		            collapsible: true, //是否为可折叠  
 		            collapsed: false, //默认是否折叠  
-		            title: '编辑短信',  
+		            title: '<b>编辑短信</b>',  
 		            autoHeight:true,  
 		            defaults: {},  
 		            defaultType: 'textfield',  
@@ -117,10 +117,10 @@ Ext.define('Fes.view.MspMsgListList', {
 	                    {xtype: 'textarea',
 		                width : 500,
 		                height : 200,
-		                fieldLabel: '短信内容',  
+		                fieldLabel: '<b>短信内容</b>',  
 		                name: 'textarea'
 					},new Ext.form.field.GridComboBox({
-						fieldLabel: '添加收信人',
+						fieldLabel: '<b>添加收信人</b>',
 						multiSelect: true,
 						displayField: 'mobileNumber',
 						valueField: 'id',
@@ -190,12 +190,12 @@ Ext.define('Fes.view.MspMsgListList', {
 					}]  
 		        },{	
 //		        	xtype: 'container',  
-	                columnWidth:.3,  
+	                columnWidth:.35,  
 	                layout:'form',
 	                xtype:'fieldset',  
 		            collapsible: true, //是否为可折叠  
 		            collapsed: false, //默认是否折叠  
-		            title: '已选收信人',
+		            title: '<b>已选收信人</b>',
     				items:[{
     					xtype: 'gridpanel',
 	    				loadMask:true,
@@ -208,7 +208,7 @@ Ext.define('Fes.view.MspMsgListList', {
 	                    stripeRows:true,
 	                    buttons:[ 
                          new Ext.Button({ 
-                          text:'删除收信人' 
+                          text:'<b>删除收信人</b>' 
                          }) 
                         ],
 	                    viewConfig:{   
