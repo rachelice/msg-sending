@@ -157,55 +157,82 @@ Ext.define('Fes.view.MspMsgListList', {
 								emptyMsg: "无数据"
 							})
 						}
-					}), {
-						xtype: 'button',
-						text: '删除收信人'
+					}),{
+						xtype: 'container',
+						x: 320,
+						y: 390,
+						height: 112,
+						width: 140,
+						layout: 'table',
+						items: []
 					},{
-	    				xtype: 'gridpanel',
+						xtype: 'container',
+						x: 320,
+						y: 390,
+						height: 38,
+						width: 140,
+						layout: 'table',
+						items: [{
+							xtype: 'button',
+							text: '发  送',
+							handler : me.send
+						},{
+							xtype: 'button',
+							text: '保  存',
+							handler : me.save
+							
+							
+						},{
+							xtype: 'button',
+							text: '清  空',
+							handler : me.clear
+						}]
+					}]  
+		        },{	
+//		        	xtype: 'container',  
+	                columnWidth:.3,  
+	                layout:'form',
+	                xtype:'fieldset',  
+		            collapsible: true, //是否为可折叠  
+		            collapsed: false, //默认是否折叠  
+		            title: '已选收信人',
+    				items:[{
+    					xtype: 'gridpanel',
 	    				loadMask:true,
+	    				forceFit:true,
+	    				border : true,
+	    				height : 380,
 	    				autoScroll: true,
+	    				trackMouseOver:true, //鼠标特效   
+	                    autoScroll:true,   
+	                    stripeRows:true,
+	                    buttons:[ 
+                         new Ext.Button({ 
+                          text:'删除收信人' 
+                         }) 
+                        ],
+	                    viewConfig:{   
+	                        columnsText:"显示/隐藏列",   
+	                        sortAscText:"正序排列",   
+	                        sortDescText:"倒序排列",   
+	                        forceFit:true  
+	                    },
 	    				selModel: new Ext.selection.CheckboxModel({
-	    					checkOnly: true
+	    					checkOnly: true	
 	    				}),
 	    				columns: [ Ext.grid.RowNumberer(),
 	    				{
 	    					xtype: 'numbercolumn',
 	    					dataIndex: 'number',
 	    					text: '姓名'
-	    				},
-	    				{
+	    				},{
 	    					xtype: 'datecolumn',
 	    					dataIndex: 'date',
 	    					text: '电话号码'
 	    				}] 
-	    			},{  
-		                xtype: 'hidden',  
-		                name: 'hidden'  
-		            }]  
+    				}]
 		        }]  
-		    },{
-				xtype: 'container',
-				x: 320,
-				y: 390,
-				height: 38,
-				width: 140,
-				layout: 'table',
-				items: [{
-					xtype: 'button',
-					text: '发  送',
-					handler : me.send
-				},{
-					xtype: 'button',
-					text: '保  存',
-					handler : me.save
-					
-					
-				},{
-					xtype: 'button',
-					text: '清  空',
-					handler : me.clear
-				}]
-			}]
+		    }]
 		});
 		me.callParent(arguments);
 	},
