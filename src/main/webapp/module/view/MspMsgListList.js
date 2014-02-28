@@ -10,7 +10,8 @@ Ext.define('Fes.view.MspMsgListList', {
 	           'Ext.grid.Panel', 
 	           'Ext.grid.column.Number', 
 	           'Ext.grid.column.Date', 
-	           'Ext.grid.View'],
+	           'Ext.grid.View',
+	           'Ext.tree.Panel'],
 
 //	height: 576,
 //	width: 785,
@@ -19,7 +20,7 @@ Ext.define('Fes.view.MspMsgListList', {
 	
 	initComponent: function() {
 		
-		var gdCbxSt = new Ext.data.Store({
+		var gdCbxSt = new Ext.data.JsonStore({
 			pageSize: 50,
 			autoLoad: false,
 			fields:[
@@ -44,7 +45,6 @@ Ext.define('Fes.view.MspMsgListList', {
 				{name:'id',type:'int'}
 			],
 			proxy: {
-				appendId:false,
 				type: 'rest',
 				url: 'mspStudent/showStudent',
 				reader: {
@@ -54,9 +54,40 @@ Ext.define('Fes.view.MspMsgListList', {
 				},
 				actionMethods:{
 				    read: 'GET'
-				}
+				},
+		 		writer : {
+		 			type : 'json'
+		 		}
 			}
 		});
+		var receiverCombo = Ext.create('Ext.form.field.ComboBox', {  
+	        fieldLabel: '<b>添加收信人</b>',
+	        emptyText: "--请选择--",
+	        displayField: 'learnerName',
+	        valueField: 'mobileNumber',
+	        tpl: Ext.create('Ext.XTemplate',
+                '<tpl for=".">',
+                    '<div class="x-boundlist-item">{learnerName}:{mobileNumber}</div>',
+                '</tpl>'
+            ),
+            displayTpl: Ext.create('Ext.XTemplate',
+                '<tpl for=".">',
+                    '{learnerName}:{mobileNumber}',
+                '</tpl>'
+            ),
+	        width: 501.5,
+	        store: gdCbxSt,
+	        multiSelect:true,
+	        queryMode: 'remote',
+	        typeAhead: true,
+	        listeners: {
+                collapse: function (field, eOpts)
+                {
+                    alert(receiverCombo.getValue());
+                    
+                }
+            }
+	    });
 		var me = this;
 		Ext.applyIf(me, {
 			dockedItems: [{  
@@ -77,45 +108,7 @@ Ext.define('Fes.view.MspMsgListList', {
 		                height : 200,
 		                fieldLabel: '<b>短信内容</b>',  
 		                name: 'textarea'
-					},new Ext.form.field.GridComboBox({
-						fieldLabel: '<b>添加收信人</b>',
-						multiSelect: true,
-						displayField: 'mobileNumber',
-						valueField: 'id',
-						width: 500,
-						store: gdCbxSt,
-						queryMode: 'remote',
-//						matchFieldWidth: false,
-//						pickerAlign: 'bl',
-						gridCfg: {
-							store: gdCbxSt,
-							selModel: new Ext.selection.CheckboxModel({
-								checkOnly: true
-							}),
-							height: 200,
-							width: 400,
-							columns: [{
-								text: '姓名',
-								width: 100,
-								dataIndex: 'learnerName'
-							},
-							{
-								text: '手机号码',
-								width: 100,
-								dataIndex: 'mobileNumber'
-							},{
-								text: 'id',
-								width: 100,
-								dataIndex: 'id'
-							}],
-							bbar: Ext.create('Ext.PagingToolbar', {
-								store: gdCbxSt,
-								displayInfo: true,
-								displayMsg: 'Displaying {0} - {1} of {2}',
-								emptyMsg: "无数据"
-							})
-						}
-					}),{
+					},receiverCombo,{
 						xtype: 'container',
 						x: 320,
 						y: 390,

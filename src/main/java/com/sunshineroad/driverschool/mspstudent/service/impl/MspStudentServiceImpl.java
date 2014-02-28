@@ -12,6 +12,7 @@ import   com.sunshineroad.driverschool.mspstudent.service.MspStudentService;
 
 
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +21,7 @@ import com.sunshineroad.driverschool.mspstudent.entity.MspStudent;
 import com.sunshineroad.driverschool.mspstudent.entityvo.MspStudentVo;
 import com.sunshineroad.framework.support.matchrule.HQLParameter;
 import com.sunshineroad.framework.support.service.impl.BaseServiceImpl;
+
 
 
 
@@ -98,17 +100,8 @@ public class MspStudentServiceImpl extends BaseServiceImpl<MspStudent, Integer> 
 	
 	@Override
 	public List<MspStudentVo> showStudent() {
-		String licenseCode="650102003993";
-//		if( licenseCode != null && !"".equals( licenseCode )){
-//			licenseCode = "and licenseCode like :licenseCode ";
-//		}
-//		Query query = getSession().createQuery( "select t.id, t.learnerName, t.mobileNum from MspStudent where 1=1 " + licenseCode + learnerName + mobileNum
-//                ).setCacheable( false );
-//		if( licenseCode != null && !"".equals( licenseCode )){
-//            query.setParameter( "licenseCode", "%" + licenseCode + "%");
-//        }
-//		return query.list();
-		return ListUtils.transform(mspStudentDao.findPageByHql(" from MspStudent where learnerName ='杨波' " ),
+		StringBuffer hql= new StringBuffer(" FROM MspStudent  WHERE 1=1");
+		return ListUtils.transform(mspStudentDao.findPageByHql(" from MspStudent where learnerName like '%晓%' " ),
 				MspStudentVo.class);
 	}
 }
