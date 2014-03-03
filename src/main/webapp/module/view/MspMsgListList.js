@@ -84,7 +84,6 @@ Ext.define('Fes.view.MspMsgListList', {
                 collapse: function (field, eOpts)
                 {
                     alert(receiverCombo.getValue());
-                    
                 }
             }
 	    });

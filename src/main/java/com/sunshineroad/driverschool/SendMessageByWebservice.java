@@ -1,11 +1,9 @@
 package com.sunshineroad.driverschool;
 
 import java.rmi.RemoteException;
-import javax.xml.rpc.ParameterMode;
 import javax.xml.rpc.ServiceException;
 import org.apache.axis.client.Call;
 import org.apache.axis.client.Service;
-import org.apache.axis.encoding.XMLType;
 
 public class SendMessageByWebservice {
 	
