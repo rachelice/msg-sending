@@ -96,6 +96,7 @@
 		
 		<script type="text/javascript" src="js/currentDate.js"></script>
 		 <script type="text/javascript" src="${extLibPath}/examples/simple-tasks/SimpleTaskSettings.js"></script>
+		 <script type="text/javascript" src="${extLibPath}/examples/ux/comboxtree.js"></script>
 		<script type="text/javascript" src="js/app.js"></script>
 		<script type="text/javascript" src="js/cryptojs.js"></script>
 		<script src="module/util/GridComboBox.js"></script>
